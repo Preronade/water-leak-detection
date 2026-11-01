@@ -1,0 +1,6 @@
+method,recall,median_latency_h,false_alarms,fa_per_month,smallest_detected_lph
+night_flow,11/12,15.8,0,0.0,6
+continuous,9/12,4.0,2,1.07,6
+stat_ewma,5/12,41.5,4,2.14,30
+iso_forest,4/12,4.8,5,2.68,6
+combined,11/12,4.0,6,3.21,6

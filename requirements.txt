@@ -1,0 +1,9 @@
+numpy
+pandas
+scikit-learn
+matplotlib
+paho-mqtt>=2.0
+fastapi
+uvicorn
+influxdb-client
+requests

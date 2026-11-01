@@ -1,0 +1,23 @@
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2
+    ports: ["1883:1883"]
+    volumes: ["./mosquitto.conf:/mosquitto/config/mosquitto.conf"]
+  influxdb:
+    image: influxdb:2.7
+    ports: ["8086:8086"]
+    environment:
+      DOCKER_INFLUXDB_INIT_MODE: setup
+      DOCKER_INFLUXDB_INIT_USERNAME: admin
+      DOCKER_INFLUXDB_INIT_PASSWORD: adminpass123
+      DOCKER_INFLUXDB_INIT_ORG: leak
+      DOCKER_INFLUXDB_INIT_BUCKET: flow
+      DOCKER_INFLUXDB_INIT_ADMIN_TOKEN: mytoken
+    volumes: ["influx:/var/lib/influxdb2"]
+  grafana:
+    image: grafana/grafana-oss:11.2.0
+    ports: ["3000:3000"]
+    depends_on: [influxdb]
+    volumes: ["./grafana/provisioning:/etc/grafana/provisioning"]
+volumes:
+  influx: {}
